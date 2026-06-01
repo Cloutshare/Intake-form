@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facebook Pagina – Intake Formulier | Cloutshare Creative Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #25aae2;
+      --blue-dark: #1a8abf;
+      --blue-light: #e8f7fd;
+      --blue-mid: #b3e4f7;
+      --ink: #0d1b2a;
+      --ink-soft: #3a4a5c;
+      --paper: #f7fbfe;
+      --white: #ffffff;
+      --border: #cce8f5;
+      --accent: #ff6b35;
+      --success: #22c55e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      padding: 28px 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 220px; height: 220px;
+      background: var(--blue);
+      opacity: .12;
+      border-radius: 50%;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      right: 40px; bottom: -30px;
+      width: 100px; height: 100px;
+      background: var(--blue);
+      opacity: .08;
+      border-radius: 50%;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 1;
+    }
+    .logo-mark {
+      width: 44px; height: 44px;
+      background: var(--blue);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -1px;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      display: flex; flex-direction: column;
+    }
+    .logo-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: white;
+      letter-spacing: .3px;
+    }
+    .logo-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .header-badge {
+      z-index: 1;
+      background: rgba(37,170,226,.15);
+      border: 1px solid rgba(37,170,226,.3);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* ── HERO STRIP ── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a8abf 100%);
+      padding: 36px 40px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: 'f';
+      position: absolute;
+      right: 30px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 140px;
+      font-weight: 900;
+      color: rgba(255,255,255,.08);
+      line-height: 1;
+      font-family: sans-serif;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: white;
+      line-height: 1.2;
+      max-width: 480px;
+    }
+    .hero h1 span {
+      opacity: .75;
+      font-weight: 400;
+    }
+    .hero p {
+      margin-top: 8px;
+      font-size: 13.5px;
+      color: rgba(255,255,255,.8);
+      font-weight: 300;
+      max-width: 460px;
+      line-height: 1.6;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar {
+      background: var(--blue-mid);
+      height: 4px;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--blue);
+      transition: width .4s ease;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+    }
+
+    /* ── SECTION CARD ── */
+    .section-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      animation: slideUp .4s ease both;
+    }
+    .section-card:nth-child(2) { animation-delay: .05s; }
+    .section-card:nth-child(3) { animation-delay: .1s; }
+    .section-card:nth-child(4) { animation-delay: .15s; }
+    .section-card:nth-child(5) { animation-delay: .2s; }
+    .section-card:nth-child(6) { animation-delay: .25s; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px 14px;
+      border-bottom: 1px solid var(--border);
+      background: var(--blue-light);
+    }
+    .section-icon {
+      width: 34px; height: 34px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      letter-spacing: .2px;
+    }
+    .section-subtitle {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      margin-top: 1px;
+      font-weight: 300;
+    }
+    .section-num {
+      margin-left: auto;
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      background: rgba(37,170,226,.12);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .section-body {
+      padding: 22px 24px;
+      display: grid;
+      gap: 16px;
+    }
+    .row-2 { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 560px) { .row-2 { grid-template-columns: 1fr; } }
+
+    /* ── FIELD ── */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    label .req { color: var(--blue); margin-left: 2px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select,
+    textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 14px;
+      width: 100%;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(37,170,226,.12);
+    }
+    input::placeholder, textarea::placeholder { color: #b0c4d0; }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2325aae2' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    textarea { resize: vertical; min-height: 88px; line-height: 1.6; }
+
+    .hint {
+      font-size: 11px;
+      color: #8fa8b8;
+      line-height: 1.5;
+      margin-top: -2px;
+    }
+
+    /* ── CHECKBOX GROUP ── */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .check-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+    .check-pill input[type="checkbox"] { display: none; }
+    .check-pill .pill {
+      padding: 7px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      background: var(--paper);
+      transition: all .2s;
+      user-select: none;
+    }
+    .check-pill input:checked + .pill {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+      font-weight: 500;
+    }
+
+    /* ── RADIO GROUP ── */
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .radio-pill { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+    .radio-pill input[type="radio"] { display: none; }
+    .radio-pill .pill {
+      padding: 7px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      background: var(--paper);
+      transition: all .2s;
+      user-select: none;
+    }
+    .radio-pill input:checked + .pill {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+      font-weight: 500;
+    }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      background: rgba(37,170,226,.06);
+      border: 1px solid rgba(37,170,226,.2);
+      border-left: 3px solid var(--blue);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      grid-column: 1 / -1;
+    }
+    .note-box strong { color: var(--blue); }
+
+    /* ── DIVIDER LABEL ── */
+    .divider-label {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      padding-bottom: 4px;
+      border-bottom: 1px dashed var(--blue-mid);
+      margin-top: 4px;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-area {
+      text-align: center;
+      padding-top: 8px;
+    }
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue);
+      color: white;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: .3px;
+      padding: 14px 36px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(37,170,226,.3);
+    }
+    .submit-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(37,170,226,.4);
+    }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #8fa8b8;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(13,27,42,.85);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    .success-overlay.active { display: flex; }
+    .success-card {
+      background: white;
+      border-radius: 20px;
+      padding: 44px 48px;
+      text-align: center;
+      max-width: 400px;
+      margin: 24px;
+      animation: popIn .35s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .success-icon {
+      width: 64px; height: 64px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+    }
+    .success-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .success-card p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .success-card .close-btn {
+      margin-top: 24px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 11px 28px;
+      border-radius: 9px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      text-align: center;
+      padding: 20px;
+      font-size: 11.5px;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .3px;
+    }
+    footer span { color: var(--blue); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo-mark" style="background:none;padding:0;overflow:hidden;"><img src="data:image/jpeg;base64,/9j/4QDgRXhpZgAASUkqAAgAAAAIABsBBQABAAAAbgAAABoBBQABAAAAdgAAAAABBAABAAAAOAQAAAEBBAABAAAARgUAABMCAwABAAAAAQAAAGmHBAABAAAAfgAAABIBAwABAAAAAQAAACgBAwABAAAAAgAAAAAAAABgAAAAAQAAAGAAAAABAAAABwAAkAIABAAAADAyMTAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAMAAQAAADgEAAABkQcABAAAAAECAwADoAMAAQAAAEYFAAAIkgQAAQAAAAAAAAAAAAAA/+ENv2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSI/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIFRlc3QuU05BUFNIT1QiPgogIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgIHhtbG5zOkF0dHJpYj0iaHR0cDovL25zLmF0dHJpYnV0aW9uLmNvbS9hZHMvMS4wLyIKICAgICAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICB4bXA6Q3JlYXRvclRvb2w9IkNhbnZhIChSZW5kZXJlcikgZG9jPURBR2YyakZDd3lNIHVzZXI9VUFEZ2h6SzZGdW8gYnJhbmQ9VGVhbSBDbG91dHNoYXJlIj4KICAgICAgPEF0dHJpYjpBZHM+CiAgICAgICAgPHJkZjpTZXE+CiAgICAgICAgICA8cmRmOmxpCiAgICAgICAgICAgIEF0dHJpYjpDcmVhdGVkPSIyMDI2LTA0LTA3IgogICAgICAgICAgICBBdHRyaWI6RGF0YT0ieyZxdW90O2RvYyZxdW90OzomcXVvdDtEQUdmMmpGQ3d5TSZxdW90OywmcXVvdDt1c2VyJnF1b3Q7OiZxdW90O1VBRGdoeks2RnVvJnF1b3Q7LCZxdW90O2JyYW5kJnF1b3Q7OiZxdW90O1RlYW0gQ2xvdXRzaGFyZSZxdW90O30iCiAgICAgICAgICAgIEF0dHJpYjpFeHRJZD0iYjE4MTUyZTgtMzljNC00MTEyLTkwOWQtZjAxMzc1MTVjNTdmIgogICAgICAgICAgICBBdHRyaWI6RmJJZD0iNTI1MjY1OTE0MTc5NTgwIgogICAgICAgICAgICBBdHRyaWI6VG91Y2hUeXBlPSIyIi8+CiAgICAgICAgICA8cmRmOmxpCiAgICAgICAgICAgIEF0dHJpYjpGYklkPSI1MjUyNjU5MTQxNzk1ODAiCiAgICAgICAgICAgIEF0dHJpYjpDcmVhdGVkPSIyMDI2LTA0LTA2IgogICAgICAgICAgICBBdHRyaWI6VG91Y2hUeXBlPSIyIgogICAgICAgICAgICBBdHRyaWI6RXh0SWQ9ImZmODY2ZjNmLTQyYjktNDEwYy1iZWUxLTI5NzA1NDBmMmMzZiIvPgogICAgICAgIDwvcmRmOlNlcT4KICAgICAgPC9BdHRyaWI6QWRzPgogICAgICA8ZGM6dGl0bGU+CiAgICAgICAgPHJkZjpBbHQ+CiAgICAgICAgICA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkNMT1VUU0hBUkUgUE9TVFMgMjAyNSAtIDE5PC9yZGY6bGk+CiAgICAgICAgPC9yZGY6QWx0PgogICAgICA8L2RjOnRpdGxlPgogICAgICA8ZGM6Y3JlYXRvcj4KICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgIDxyZGY6bGk+SkJ3aWpuPC9yZGY6bGk+CiAgICAgICAgPC9yZGY6U2VxPgogICAgICA8L2RjOmNyZWF0b3I+CiAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz7/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAVGBDgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD50ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK09H0HU9ZlEemWU1wxOPkXNeq+GP2ffE2qKkl/sso2GcPkN/KgDxenIjuwCKST6Cvrjw7+zhodoqtqt3NdP3XAxXpWh/DfwtoyKLTSoNy/wATAk/rQB8OaV4M8QaqV+w6Vcyg91Xiu60r4C+ML0I0tstsrf8APTIIr7Sgs7aBQsMESAdNqgVPQB8s6X+zPeOqtqGqKnqI+f5iumsf2atFiKm51K5k9RtWvoCigDyjT/gP4NtVAks/tB9X/wDrGr3/AApXwV/0CYvzP+Nek0UAebf8KV8Ff9AmL8z/AI0f8KV8Ff8AQJi/M/416TRQB5t/wpXwV/0CYvzP+NH/AApXwV/0CYvzP+Nek0UAeS6j8BfB12D5Vqbc+qf/AFzXK337NGkybjbancxk9BtX/CvoSigD5L1n9mvWIATpt/DOOwfr+grhNc+DvjHSAzPpcs6D+KJcivu+kZVYYZQR7igD82b/AEu+0+Ty721lhf0dap1+j2p+HtJ1NCt9YW8oPqgrzrxL8CPCmrl3toTZSnoYuf5mgD4lor3nxZ+zprVgHl0WdbyMchT979BXj2veG9W0GYx6rYzW5Bxl1xmgDHooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooqeztZ7ydYbWJpZW4CqMk0AQVLbwS3EqxwIzyMcBV6mvZvh18BtZ150udbDWFmcHBHzMPoa+kfB/ww8NeF41+x2Uckw6yyDJP50AfKPhL4LeK/EHlyNZtaW7/AMcwI4/KvdfBv7PWhaWkcusSNfXA5KkYX9K9wRFRcIoUDsBiloAzNJ0DS9IhWLT7GCFAMDCj+daY46UUUAFFFFABRRRQAUU2SRI13SMFX1NZ8+u6XAcS30Cn0LU0m9hOSW7NKiueuPF+kQZzPux/d5qhL8QtFjIBMxz6KP8AGtFQqvaLMHiqK3mvvOworjB8QtJIyGYD3FL/AMLB0n+81afU6/8AKzL+0cN/OjsqK4w/EPSF5Jcj2FSQ/EHRZc4aYY9VH+NS8LWW8WXHHYeW019519FYVt4r0mfpcqv+8cVft9X0+4OILuFz/stWcqco7o2jVhP4ZJl6igEEAjoaKg0CiiigArM1jQdM1i3aHUbOGZCP4l5rTooA+evHv7Otje+bdeG7hreU5PkMPlP48mvnrxb4C8QeFpWGq6fKkSn/AFoX5T+NfoVVTUtNs9StngvreOaNxgh1BoA/Naivq74l/s+2l6Jb3wu3kTcsYD90/SvmfxH4f1Lw7fPaarbSQSqcfMMZ+lAGTRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABTlUuwVQSxOABW74S8J6t4q1BbXSLV5mJ+ZgDtUe5r6r+F3wN0vw7HFea0ou9Q67TyqmgDxH4afBTWvFMkdxqEb2WnHB3sMFh7CvqHwT8MvDvhOFPsVmkk4HMsgyT+ddpFEkMYSJFRB0VRgCn0AIqhQAoAA7CloooAKKKiuLiK2j3zyKi+rHFAEtFclrHjnTbFmSNvMdeuK4nVviFfXG9LVRGh6N3FdlHAVq2ysvM87EZrhsPpKV35anr01xDCpaWRUA6kmsDUvGmi2OQ1yJSO0WGrxW+1e+vnLXFzIxPocCqBJJyTk16dLJ4r+JL7jxK/EUnpRhb1PTtS+JxyVsLQFf7zkg1zl7461m53ATbEPYAVylFd1PAUIbRPLq5riqu87emhfm1a+lcs9zKSf9o1UknkkOXdifc1HRXVGEY7I4pVZz1k2xSzHqx/OkooqjMKKKKACjNFFADg7Dox/OpYrqeI/u5XX6GoKKTSe41JrZmtY+IdSsmzDcyZ68nNdJpvxG1K3wLpEuB78fyrhaKwnhKNT4oo66WYYml8E2e0aT8Q9Lu8Lc7reTvkfL+ddXZ6haXkYe1njlU91Oa+bKtWl/dWbhred0I9DxXn1sohLWm7HrYfiGrHStG68tD6TorxzQviDeWm2O8HmoP4u5r0HQ/FunaoigSiOU9VY15NfBVaHxLQ+gwuZYfFaQlr2Z0VFAIIBByDRXId4VzHjXwTo/i7T5LfU7ZC7DCygfMprp6KAPib4p/BrVvCUkl1Yo13pvXeo5Ue9eSkYOD1r9Lrq2hu4HhuI1kjcYKsMg181/Gf4Gg+dq/hWM5OXktx/SgD5koqW6t5bW4kguEaOVDhlYYINRUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFel/Cj4Van42vEldGg0xTl5SOo9BW38DvhLceK7yPUtWjeLSo2yMjBkI/pX2HpWm2mlWcdrYwJDCgACqoFAGR4N8IaV4S01LTS7dEwMNJj5m/GuioooAKKKjuJ47eMyTOEUdyaAJKgvLyCyhMtzKsaDuxxXEeI/iDb2m+LTx5so4yeleZ6xrl/q0xe7nYg/wAIOB+VelhssqVvelojxcbnVHD+7D3pfgei+IfiLDCWi0xd56bzXnuq+IL/AFKVnnnb5v4QeKyaK9yhgqNH4VqfMYrM8RifilZdkKzFjliSfU0lFFdZ54UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU+KV4mDRsVI9DTKKGr7jTa1R2Xhrxzeaayx3J86DphjyK9X0TXLHWIQ9nKC3dD1H4V87Va06/uNPuFmtZWRlOeDwa8zE5ZTq6w0Z7WCzutQtGr70fxPpOiuB8I+Oo78rBqO2OXHDetd5G6yIGQhlPQivnq1GdGXLNH1+HxNPEw56buh1BAYEEAg9jRRWRueH/G74OW/iO3l1TQYli1NQWZAMCSvkbU7C50y9ltb2Jop4ztZWGK/SmvGfjp8KLbxRps2paTCseqxAthRjzPagD4xoqxfWk9jdy211G0c0bbWVhgg1XoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvWfgb8MJvGepre3qsmlwtlmx98jt+lcd8OvCV14w8SW+nWyMUJzIw/hXvX3p4T0C08NaHbabYxqkcSgHA6nHJoAvaXp9tpljDaWcSxwxKFVVGOlWqKKACignA5rjPGnjKHSoWgs2D3Z49cVpSpTrS5YLUxr4inh4OdR2Rs+IvEVnokJM7gynog615B4j8WXurSuPMKQk8KOOKxdQvri/uGmuZGdmOeTVWvpMJl0KHvS1kfGY/OKuJbjDSIEknJOTRRRXonjhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAqsVYMpII6EV3ngrxq9i62t+S8LHhielcFRWNehCvHlmjpwuLqYWfPTZ9L2lzFdwLNA4eNhkEVNXiHgzxbcaPOkMzb7UnBB7V7PYX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MOp3JA7M5IrsdD+NHiCyZReMtxGO2Of51jPLqi+F3NoZjTfxKx9XUV454a+OGl3rLHqMTQOe+eBXp+j6/purxB7G6ikB7bua450Z0/iR2QrQqfCzUooorM0CggEYPIoooA5TxR4MstXid4VEN11DAcH614/rWjXekXLQ3UZGOjAcGvous3W9HtdXtjFdRgns3cV6ODzCdD3ZaxPGzDKKeK9+GkvzPnSiun8V+FbnR7hiiF7fswrmK+kpVYVY80HdHxtehUw8+SorMKKKK0MQooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArb0HxNqOiKy2TptbqHXNYlFROnGouWaujSlVnRlz03ZnXH4ga2T/AKyL/vn/AOvSp8QtcQ5Dwk+6Z/rXIUVj9TofyI6f7RxX/Px/edvF8SdaDfvBbMPaPH9av2/xOuVx59qr+u3ivOaKh4DDv7JpHNsXH7bPW7X4n2T4E9lLH77wf6Vs2njvRLggeeUc9iprwuisJ5TQltdHVTz/ABUfis/l/kfR1vrFhcY8q5jJPbcKurIj/dZT9DXzRDNJC26J2RvUGtfT/FGq2J/d3LN/vHNclTJ5L4JfeehR4ji9KsLeh9BUV5NpfxHuI9q3abl7nvXa6R4w0zUFUeZ5Tt0VjXnVcHWpfFE9jD5jh8R8EtTpKKbHIki5jZWHqDmnVyncFMnhjniaKZFeNhgqwyDT6KAPFPif8C9K8QRy3ehqllfHLbQPlY/QV8qeK/Cuq+F9QktNVtZI2Q434+U/jX6LVgeL/CeleK9Oe11a2SUEYViOVPtQB+dVFerfFr4Ral4NuXuLNWudMJ+V1GSo968qoASiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAClAycDrQAWIABJPQCvdfgd8HJtfli1fXo2isFO5I2HL4/yKAMD4S/CHUvGNwl1eK1tpinJdhgt9K+wPCXhbTPC2mR2elW6RKowWA5b61q2FnBYWkdtaRrFDGMKqjAFWKACiiigAoqtf39tYQNNdzJGijJLGvGfHvxst7Ey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kk969LB4Tm/eT2PMxmL5f3cNxbm4lup3mncvI5yWPeoqKK9g8gKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKADpXsfwY+JMmj3CaXqkjNaOQEZj92vHKVWKsGU4I5BrOrSjVjyyNKVWVKXNE+/LeaO4hSWFgyMMgjvUleAfAn4i7imh6tLg/8ALF2PX2/SvfwcjIr56tRlSlyyPoaNaNWPNEKKKKyNQIBBB5Brzjx74MEySX2mqA45aMDrXo9BAIIPIrahXlQmpxOfFYaGJpunM+ZHRkcq4IYcEGm16b8R/CgBbUbFOTzIoFeZEEHB619Zh8RHEQ54nwOMwc8JUdOfy8wooorc5AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACnRu0bq6HDA5BptFAbHr3w98VLeRJZXb4mHC57139fNNlcyWlzHPCxV0OQRXvHg/Xotc0tJFIE6DEi+hr5vMsF7J+0hs/wAD7PJsy+sR9jUfvL8Teoooryj3jyD9ojwCvijw21/Zxj7fZqWGByw9P1r4tljaKRo3GGU4Ir9L5UWWNkcAqwwQa+Iv2gvBJ8K+LpJ7eMiyvCZEOOB7fzoA8qooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvXv2dfA7+JfFUd9cx5sbM7ySOCw5H8q8lt4XuJ44YgWd2CqB3Jr7y+CvhOPwp4Js4Nm24mUSyHHPzc/1oA71FVEVEACqMADtS0UUAFcb8TvF0PhbQpZd4+0uCqLnnNdbdzpa20s8pCpGhdifQDNfHPxW8WyeKPEk7o5+yRNsjAPBx3rqwlD209dkcuLr+xhpuzltY1KfVdQmu7py0kjEnNUqKK+gStoj59u+rCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAJbaeS2nSaFikiEMpHY19XfBfx6niXSEs76Qf2jAMHJ5cetfJlbPhTXLjw/rMF7bOVKMMgHqK5sTQVaFup0Yau6M79D7oor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UjKGUqwyCMEU4vld0KSUlZnwLewNbXUsLghkYrg1DXo/xx8ONofi2aVExBc/Op7ZPJH615xX01OaqQUl1PmakHTm4voFFFFWQFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAKrFWDKSCOhFfSnwM+Iy6hapoury/wCkpxE7HqPT+VfNVWdOvZ9PvIrm1cpLGcqRWOIoKtHlZtQrujLmR98DkcUV5z8I/HsPifSkguZAL6MYIP8AFXo1fPTg4S5ZH0MJqceaIUUUVBYVW1Cygv7V4LlA0bDFWaKabTuhNJqzPBPGPhybQr9gAWtnOUb+lc7X0Xr+kwavYvBMoJx8pPY14V4h0W40i9eKZCFzwcda+lwGOVdck/i/M+KzbK3hpe0p/A/wMmiiivTPECiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvZPhTpptNGa5cfNOdw9cV5To1k+oajDAgPzNyfSvoTSbVbLT4YFGNi4rx83r8sFSXU+i4fw3NUdd7Lb1LdFFFfPH15V1W9j07Tri7mOI4ULt9K/PDxpqZ1jxRqN8c/vZT19uK+yf2iPEKaJ8Pb2JZNs90piQZ55B/wr4cYlmLHqTmgBKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAOt+FviF/DXjXT75WITeEfn+EkZr9ALG5S8soLiIgpKiuMe4zX5pgkEEcEV9p/s3eMh4i8IrY3Mg+12fyYJ5K9v0FAHsFFFFAHn3xn8IjxP4XlaEAXlsDIjY7Dkj9K+QZY2ikaORSrqcEHsa+/mUMpVuQRg18q/HTwW2ia5JqNpGfslwdxwOjHr/OvUy+vb92/keXmFC/7yPzPKaKKK9Y8kKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKANbwzrt34f1WG+snKuhyR6j0r7C+Hvi+z8W6JHc2zgToAssZPKmv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/M//AH8NV6KALH226/5+Z/8Av4ajkmlk/wBZI7/7zE1HRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA4My9CR9DUq3dyowtxMB7OagooAsfbbr/n5n/7+Gj7bdf8/M//AH8NV6KAJHlkf78jt9WJpmaSigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9miigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" style="width:44px;height:44px;object-fit:cover;border-radius:10px;" /></div>
+    <div class="logo-text">
+      <div class="logo-name">Cloutshare Creative Agency</div>
+      <div class="logo-sub">Social · Content · Digital</div>
+    </div>
+  </div>
+  <div class="header-badge">Client Intake</div>
+</header>
+
+<div class="hero">
+  <h1>Facebook Pagina <span>Intake</span></h1>
+  <p>Vul dit formulier zo volledig mogelijk in. Hoe meer informatie wij hebben, hoe beter wij jouw pagina kunnen opzetten — professioneel, on-brand en klaar om te groeien.</p>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<main>
+  <form id="intakeForm" novalidate>
+
+    <!-- ── 1. BEDRIJFSINFORMATIE ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🏢</div>
+        <div>
+          <div class="section-title">Bedrijfsinformatie</div>
+          <div class="section-subtitle">Basisgegevens over je bedrijf</div>
+        </div>
+        <div class="section-num">01 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field">
+          <label>Bedrijfsnaam <span class="req">*</span></label>
+          <input type="text" name="company_name" placeholder="bv. General Skincare" required />
+        </div>
+        <div class="field">
+          <label>Gewenste paginanaam</label>
+          <input type="text" name="page_name" placeholder="bv. General Skincare NL" />
+          <span class="hint">Mag afwijken van bedrijfsnaam</span>
+        </div>
+        <div class="field">
+          <label>Branche / categorie <span class="req">*</span></label>
+          <select name="category" required>
+            <option value="" disabled selected>Kies een categorie…</option>
+            <option>Beauty & Wellness</option>
+            <option>Horeca & Restaurant</option>
+            <option>Retail & Winkel</option>
+            <option>Toerisme & Recreatie</option>
+            <option>Gezondheid & Zorg</option>
+            <option>Mode & Kleding</option>
+            <option>Vastgoed</option>
+            <option>Creatieve Diensten</option>
+            <option>Technologie</option>
+            <option>Sport & Fitness</option>
+            <option>Anders</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Subcategorie / specialisatie</label>
+          <input type="text" name="subcategory" placeholder="bv. Laser ontharing, Terrasexperiences…" />
+        </div>
+        <div class="field full">
+          <label>Korte bedrijfsomschrijving <span class="req">*</span></label>
+          <textarea name="description" placeholder="Beschrijf in 2-3 zinnen wat jullie doen, voor wie en wat jullie onderscheidt…" required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. CONTACTGEGEVENS ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">📞</div>
+        <div>
+          <div class="section-title">Contactgegevens</div>
+          <div class="section-subtitle">Informatie die op de pagina komt te staan</div>
+        </div>
+        <div class="section-num">02 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field">
+          <label>E-mailadres (publiek)</label>
+          <input type="email" name="email" placeholder="info@jouwbedrijf.nl" />
+        </div>
+        <div class="field">
+          <label>Telefoonnummer (publiek)</label>
+          <input type="tel" name="phone" placeholder="+31 6 00 000 000" />
+        </div>
+        <div class="field">
+          <label>Website</label>
+          <input type="url" name="website" placeholder="https://www.jouwwebsite.nl" />
+        </div>
+        <div class="field">
+          <label>WhatsApp nummer</label>
+          <input type="tel" name="whatsapp" placeholder="+31 6 00 000 000" />
+        </div>
+        <div class="field full">
+          <label>Adres (indien van toepassing)</label>
+          <input type="text" name="address" placeholder="Straatnaam 12, 1234 AB Stad" />
+        </div>
+        <div class="field">
+          <label>Openingstijden</label>
+          <textarea name="hours" style="min-height:70px" placeholder="bv. Ma–Vr: 09:00–18:00&#10;Za: 10:00–16:00&#10;Zo: Gesloten"></textarea>
+        </div>
+        <div class="field">
+          <label>Andere social media</label>
+          <textarea name="socials" style="min-height:70px" placeholder="bv. Instagram: @jouwhandle&#10;TikTok: @jouwhandle&#10;LinkedIn: /bedrijfsnaam"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. BRANDING ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🎨</div>
+        <div>
+          <div class="section-title">Branding & Uitstraling</div>
+          <div class="section-subtitle">Visuele identiteit van je merk</div>
+        </div>
+        <div class="section-num">03 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field">
+          <label>Primaire kleur(en)</label>
+          <input type="text" name="colors_primary" placeholder="bv. #25AAE2, donkerblauw, rosé goud…" />
+        </div>
+        <div class="field">
+          <label>Lettertype / font (indien bekend)</label>
+          <input type="text" name="font" placeholder="bv. Montserrat, geen voorkeur…" />
+        </div>
+        <div class="field full">
+          <div class="divider-label">Sfeer & Stijl</div>
+        </div>
+        <div class="field full">
+          <label>Merkpersoonlijkheid <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="check-pill"><input type="checkbox" name="personality" value="Luxe & Exclusief"/><span class="pill">Luxe & Exclusief</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Speels & Energiek"/><span class="pill">Speels & Energiek</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Professioneel & Betrouwbaar"/><span class="pill">Professioneel & Betrouwbaar</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Warm & Persoonlijk"/><span class="pill">Warm & Persoonlijk</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Modern & Minimalistisch"/><span class="pill">Modern & Minimalistisch</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Avontuurlijk & Gedurfd"/><span class="pill">Avontuurlijk & Gedurfd</span></label>
+            <label class="check-pill"><input type="checkbox" name="personality" value="Duurzaam & Bewust"/><span class="pill">Duurzaam & Bewust</span></label>
+          </div>
+        </div>
+        <div class="field full">
+          <label>Hebben jullie al een logo?</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="has_logo" value="Ja, stuur ik op"/><span class="pill">Ja, stuur ik op</span></label>
+            <label class="radio-pill"><input type="radio" name="has_logo" value="Ja, maar verouderd"/><span class="pill">Ja, maar verouderd</span></label>
+            <label class="radio-pill"><input type="radio" name="has_logo" value="Nee, nog niet"/><span class="pill">Nee, nog niet</span></label>
+          </div>
+        </div>
+        <div class="field full">
+          <label>Inspiratie / merkexamples</label>
+          <textarea name="inspiration" placeholder="Noem 2-3 merken of pagina's waarvan je de stijl bewondert, of plak links…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 4. DOELGROEP & DOELSTELLINGEN ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title">Doelgroep & Doelstellingen</div>
+          <div class="section-subtitle">Wie wil je bereiken en waarom</div>
+        </div>
+        <div class="section-num">04 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field">
+          <label>Leeftijdscategorie doelgroep</label>
+          <div class="checkbox-group">
+            <label class="check-pill"><input type="checkbox" name="age" value="16–24"/><span class="pill">16–24</span></label>
+            <label class="check-pill"><input type="checkbox" name="age" value="25–34"/><span class="pill">25–34</span></label>
+            <label class="check-pill"><input type="checkbox" name="age" value="35–44"/><span class="pill">35–44</span></label>
+            <label class="check-pill"><input type="checkbox" name="age" value="45–54"/><span class="pill">45–54</span></label>
+            <label class="check-pill"><input type="checkbox" name="age" value="55+"/><span class="pill">55+</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Geslacht doelgroep</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="gender" value="Voornamelijk vrouwen"/><span class="pill">Voornamelijk vrouwen</span></label>
+            <label class="radio-pill"><input type="radio" name="gender" value="Voornamelijk mannen"/><span class="pill">Voornamelijk mannen</span></label>
+            <label class="radio-pill"><input type="radio" name="gender" value="Gemengd"/><span class="pill">Gemengd</span></label>
+          </div>
+        </div>
+        <div class="field full">
+          <label>Locatie doelgroep</label>
+          <input type="text" name="target_location" placeholder="bv. Amsterdam, heel Nederland, internationale klanten…" />
+        </div>
+        <div class="field full">
+          <label>Hoofddoel van de Facebook pagina <span class="req">*</span></label>
+          <div class="checkbox-group">
+            <label class="check-pill"><input type="checkbox" name="goal" value="Meer klanten aantrekken"/><span class="pill">Meer klanten aantrekken</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Merkbekendheid vergroten"/><span class="pill">Merkbekendheid vergroten</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Reviews verzamelen"/><span class="pill">Reviews verzamelen</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Afspraken / boekingen"/><span class="pill">Afspraken / boekingen</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Community opbouwen"/><span class="pill">Community opbouwen</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Advertenties draaien"/><span class="pill">Advertenties draaien</span></label>
+            <label class="check-pill"><input type="checkbox" name="goal" value="Webshop / verkoop"/><span class="pill">Webshop / verkoop</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5. CONTENT & BEHEER ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">📱</div>
+        <div>
+          <div class="section-title">Content & Paginabeheer</div>
+          <div class="section-subtitle">Wat er geplaatst wordt en door wie</div>
+        </div>
+        <div class="section-num">05 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field full">
+          <label>Soorten content die geplaatst worden</label>
+          <div class="checkbox-group">
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Foto's van producten/diensten"/><span class="pill">Foto's van producten/diensten</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Video's & Reels"/><span class="pill">Video's & Reels</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Acties & Aanbiedingen"/><span class="pill">Acties & Aanbiedingen</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Before & After"/><span class="pill">Before & After</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Evenementen"/><span class="pill">Evenementen</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Educatieve content"/><span class="pill">Educatieve content</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Testimonials / Reviews"/><span class="pill">Testimonials / Reviews</span></label>
+            <label class="check-pill"><input type="checkbox" name="content_type" value="Behind the scenes"/><span class="pill">Behind the scenes</span></label>
+          </div>
+        </div>
+        <div class="field full">
+          <label>Wie beheert de pagina? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="manager" value="Cloutshare Creative Agency (volledig)"/><span class="pill">Cloutshare Creative Agency (volledig)</span></label>
+            <label class="radio-pill"><input type="radio" name="manager" value="Wij zelf plaatsen ook"/><span class="pill">Wij zelf plaatsen ook</span></label>
+            <label class="radio-pill"><input type="radio" name="manager" value="Wij beheren zelf, JB adviseert"/><span class="pill">Wij beheren zelf</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Heeft u bestaande afbeeldingen / video's?</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="has_assets" value="Ja, stuur ik op"/><span class="pill">Ja, stuur ik op</span></label>
+            <label class="radio-pill"><input type="radio" name="has_assets" value="Deels"/><span class="pill">Deels</span></label>
+            <label class="radio-pill"><input type="radio" name="has_assets" value="Nee, moet aangemaakt worden"/><span class="pill">Nee</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Gewenste toon van communicatie</label>
+          <div class="radio-group">
+            <label class="radio-pill"><input type="radio" name="tone" value="Formeel"/><span class="pill">Formeel</span></label>
+            <label class="radio-pill"><input type="radio" name="tone" value="Informeel"/><span class="pill">Informeel</span></label>
+            <label class="radio-pill"><input type="radio" name="tone" value="Mix"/><span class="pill">Mix</span></label>
+          </div>
+        </div>
+        <div class="field full note-box">
+          <strong>📌 Let op:</strong> Wij hebben admin-toegang nodig tot je Facebook Business Manager of persoonlijk Facebook-account om de pagina aan te maken. Wij nemen hier apart contact over op.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 6. EXTRA ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title">Extra Informatie & Wensen</div>
+          <div class="section-subtitle">Alles wat we verder moeten weten</div>
+        </div>
+        <div class="section-num">06 / 06</div>
+      </div>
+      <div class="section-body row-2">
+        <div class="field full">
+          <label>Concurrenten (optioneel)</label>
+          <input type="text" name="competitors" placeholder="Noem 1-3 concurrenten of soortgelijke pagina's…" />
+        </div>
+        <div class="field">
+          <label>Contactpersoon naam <span class="req">*</span></label>
+          <input type="text" name="contact_name" placeholder="Volledige naam" required />
+        </div>
+        <div class="field">
+          <label>Contactpersoon e-mail <span class="req">*</span></label>
+          <input type="email" name="contact_email" placeholder="jouw@email.com" required />
+        </div>
+        <div class="field">
+          <label>Contactpersoon telefoon</label>
+          <input type="tel" name="contact_phone" placeholder="+31 6 00 000 000" />
+        </div>
+        <div class="field">
+          <label>Gewenste opleverdatum</label>
+          <input type="text" name="deadline" placeholder="bv. Zo snel mogelijk, voor 15 juli…" />
+        </div>
+        <div class="field full">
+          <label>Overige opmerkingen / wensen</label>
+          <textarea name="notes" placeholder="Is er iets specifieks dat we moeten weten? Slogans, bijzondere functies, voorkeur voor bepaalde Facebook-functies (Shop, Booking, WhatsApp button)…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SUBMIT ── -->
+    <div class="submit-area">
+      <button type="submit" class="submit-btn">
+        <span>✓</span> Formulier Indienen
+      </button>
+      <p class="submit-note">Na ontvangst nemen wij binnen 1 werkdag contact met je op.</p>
+    </div>
+
+  </form>
+</main>
+
+<footer>
+  © 2026 <span>Cloutshare Creative Agency</span> · Social · Content · Digital
+</footer>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">✓</div>
+    <h2>Bedankt!</h2>
+    <p>Jouw intake is ontvangen. We gaan direct aan de slag met jouw Facebook pagina en nemen binnenkort contact op.</p>
+    <button class="close-btn" onclick="document.getElementById('successOverlay').classList.remove('active')">Sluiten</button>
+  </div>
+</div>
+
+<script>
+  const NOTION_DS_ID = '6f38e09b-a175-4b1d-a777-8a72b9c2b895';
+
+  const form = document.getElementById('intakeForm');
+  const fill = document.getElementById('progressFill');
+  const submitBtn = document.querySelector('.submit-btn');
+
+  function updateProgress() {
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], select, textarea');
+    let filled = 0;
+    inputs.forEach(i => { if (i.value.trim()) filled++; });
+    fill.style.width = Math.min(100, Math.round((filled / inputs.length) * 100)) + '%';
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+
+  function getChecked(name) {
+    return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value).join(', ');
+  }
+  function getRadio(name) {
+    const el = form.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '';
+  }
+  function val(name) {
+    const el = form.querySelector(`[name="${name}"]`);
+    return el ? el.value.trim() : '';
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = '#ef4444'; valid = false; }
+    });
+    if (!valid) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>⏳</span> Versturen…';
+
+    const properties = {
+      "Bedrijfsnaam":        val('company_name') || 'Onbekend',
+      "Contactpersoon":      val('contact_name'),
+      "Email":               val('contact_email'),
+      "Telefoon":            val('contact_phone'),
+      "Branche":             val('category') + (val('subcategory') ? ' — ' + val('subcategory') : ''),
+      "Merkpersoonlijkheid": getChecked('personality'),
+      "Doelstelling":        getChecked('goal'),
+      "Doelgroep leeftijd":  getChecked('age') + (getRadio('gender') ? ' · ' + getRadio('gender') : ''),
+      "Doelgroep locatie":   val('target_location'),
+      "Website":             val('website'),
+      "WhatsApp":            val('whatsapp'),
+      "Adres":               val('address'),
+      "Openingstijden":      val('hours'),
+      "Andere socials":      val('socials'),
+      "Primaire kleuren":    val('colors_primary'),
+      "Logo aanwezig":       getRadio('has_logo') === 'Ja, stuur ik op' ? 'Ja - wordt opgestuurd' : getRadio('has_logo') === 'Nee, nog niet' ? 'Nee' : getRadio('has_logo') ? 'Ja maar verouderd' : '',
+      "Contentsoorten":      getChecked('content_type'),
+      "Wie beheert pagina":  getRadio('manager') === 'Cloutshare Creative Agency (volledig)' ? 'Cloutshare Creative Agency' : getRadio('manager') === 'Wij zelf plaatsen ook' ? 'Gedeeld beheer' : 'Klant beheert zelf',
+      "Assets aanwezig":     getRadio('has_assets') === 'Ja, stuur ik op' ? 'Ja' : getRadio('has_assets') === 'Deels' ? 'Deels' : 'Nee',
+      "Gewenste opleverdatum": val('deadline'),
+      "Opmerkingen":         val('notes') + (val('competitors') ? '\n\nConcurrenten: ' + val('competitors') : '') + (val('inspiration') ? '\n\nInspiratie: ' + val('inspiration') : ''),
+      "Status":              "Nieuw"
+    };
+
+    const prompt = `You are an assistant that creates Notion database pages using MCP tools.
+
+Create a new page in the Notion data source with ID "${NOTION_DS_ID}" using the following properties (JSON):
+${JSON.stringify(properties, null, 2)}
+
+Use the notion-create-pages tool with parent type "data_source_id". Set the icon to 📋. Do not add any content body. Return only a JSON object: {"success": true, "page_url": "<url>"} or {"success": false, "error": "<message>"}.`;
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          mcp_servers: [{ type: 'url', url: 'https://mcp.notion.com/mcp', name: 'notion' }],
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+
+      const data = await res.json();
+      const texts = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
+
+      let parsed = { success: false };
+      try {
+        const match = texts.match(/\{[\s\S]*\}/);
+        if (match) parsed = JSON.parse(match[0]);
+      } catch(_) {}
+
+      if (parsed.success || texts.includes('success')) {
+        fill.style.width = '100%';
+        document.getElementById('successOverlay').classList.add('active');
+      } else {
+        throw new Error(parsed.error || 'Onbekende fout');
+      }
+    } catch(err) {
+      console.error(err);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>✓</span> Formulier Indienen';
+      alert('Er ging iets mis bij het versturen. Probeer opnieuw of neem contact op met Cloutshare Creative Agency.\n\nFout: ' + err.message);
+    }
+  });
+</script>
+</body>
+</html>
